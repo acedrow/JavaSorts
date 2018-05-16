@@ -2,19 +2,13 @@ package javaSorts;
 public class JavaSortDriver {
 
 	public static void main(String[] args){
-		int n = 1000;
+		int n = 100000;
 		int[] random = new int[n];
 		setRandom(random, 100);
 		
-		//print out array values
-		//for (int i = 0; i < toSort.length; i++){
-		//	System.out.print(toSort[i] + ", ");
-		//}
-		//System.out.println();
-		
 		//Do bubblesort
-		BubbleSort js = new BubbleSort();
-		js.bubbleSort(random);
+		BubbleSort bs = new BubbleSort();
+		bs.bubbleSort(random);
 		
 		//reset random values
 		setRandom(random,100);
@@ -22,6 +16,13 @@ public class JavaSortDriver {
 		//Do mergesort
 		 MergeSort ms = new MergeSort();
 		 ms.start(random);
+		 
+		//reset random values
+		setRandom(random,100);
+		
+		//Do Quicksort
+		QuickSort qs = new QuickSort();
+		qs.start(random);
 		
 	}
 	
@@ -32,5 +33,12 @@ public class JavaSortDriver {
 			arr[i] = (int)(Math.random() * max + 1);
 		}
 		return arr;
+	}
+	
+	public static void printArray(int[] toPrint){
+		for (int i = 0; i <toPrint.length; i++){
+			System.out.print(toPrint[i] + ", ");
+		}
+		System.out.println();
 	}
 }
